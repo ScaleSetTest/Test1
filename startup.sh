@@ -5,7 +5,7 @@ mkdir /opt/bin
 mv docker-compose /opt/bin/docker-compose
 chmod +x /opt/bin/docker-compose
 
-curl -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
+curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
 mkdir
 /opt/bin/docker-compose up -d
 
