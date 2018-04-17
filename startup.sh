@@ -6,7 +6,8 @@ mv docker-compose /opt/bin/docker-compose
 chmod +x /opt/bin/docker-compose
 
 curl -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
-docker-compose up -d
+mkdir
+/opt/bin/docker-compose up -d
 
 
 #docker run --rm --name docker-nginx -p 81:80 -d nginx
