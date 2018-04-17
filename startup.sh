@@ -2,6 +2,7 @@ curl -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose
 mkdir /opt/
 mkdir /opt/bin
 mv docker-compose /opt/bin/docker-compose
+chmod +x /opt/bin/docker-compose
 
 
 docker run --rm --name docker-nginx -p 80:80 -d nginx
