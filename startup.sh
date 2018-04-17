@@ -1,9 +1,12 @@
-
-curl -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose-`uname -s`-`uname -m` > docker-compose
-mkdir /opt/
-mkdir /opt/bin
-mv docker-compose /opt/bin/docker-compose
-chmod +x /opt/bin/docker-compose
+#!/bin/bash
+if [ ! -x "/opt/bin/docker-compose" ]
+then
+  curl -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose-`uname -s`-`uname -m` > docker-compose
+  mkdir /opt/
+  mkdir /opt/bin
+  mv docker-compose /opt/bin/docker-compose
+  chmod +x /opt/bin/docker-compose
+fi
 
 curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
 #/opt/bin/docker-compose kill
