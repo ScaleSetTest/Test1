@@ -9,9 +9,8 @@ then
 fi
 
 curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
-#/opt/bin/docker-compose kill
 /opt/bin/docker-compose up -d
 
-
+#/opt/bin/docker-compose kill
 #docker run --rm --name docker-nginx -p 81:80 -d nginx
 #docker run --rm --name docker-apache -p 80:80 -d httpd
