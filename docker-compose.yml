@@ -2,3 +2,8 @@ web:
   image: nginx:latest
   ports:
     - "80:80"
+
+app:
+  image: http:latest
+  ports:
+    - "81:80"
