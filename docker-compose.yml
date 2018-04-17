@@ -4,6 +4,6 @@ web:
     - "80:80"
 
 app:
-  image: http:latest
+  image: httpd:latest
   ports:
     - "81:80"
