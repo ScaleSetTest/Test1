@@ -10,6 +10,6 @@ app:
 
 myweb:
   image: containersregtest.azurecr.io/app1/web:latest
-    ports:
+  ports:
     - "82:80"
     
