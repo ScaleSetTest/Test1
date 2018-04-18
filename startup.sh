@@ -2,17 +2,19 @@
 if [ ! -x "/opt/bin/docker-compose" ]
 then
   curl -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose-`uname -s`-`uname -m` > docker-compose
-  mkdir /opt/
+  mkdir /opt
   mkdir /opt/bin
+  mkdir /home/docker-compose
   mv docker-compose /opt/bin/docker-compose
   chmod +x /opt/bin/docker-compose
 fi
 
 curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
-docker kill $(docker ps -q)
+cp docker-compose.yml /home/docker-compose
+cd /home/docker-compose
 /opt/bin/docker-compose up -d
 
-
+#docker kill $(docker ps -q)
 #/opt/bin/docker-compose kill
 #docker run --rm --name docker-nginx -p 81:80 -d nginx
 #docker run --rm --name docker-apache -p 80:80 -d httpd
