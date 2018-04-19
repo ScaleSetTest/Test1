@@ -3,12 +3,18 @@
 # install docker-compose on first boot
 if [ ! -x "/opt/bin/docker-compose" ]
 then
-  curl -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose-`uname -s`-`uname -m` > docker-compose
+  curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname -s`-`uname -m` > docker-compose
   mkdir /opt
   mkdir /opt/bin
   mv docker-compose /opt/bin/docker-compose
   chmod +x /opt/bin/docker-compose
 fi
+
+# enviorment
+export REG_LOC="containersregtest.azurecr.io"
+export REG_USR="ContainersRegTest"
+export REG_PWD=$1
+export APP_VERSION=$2
 
 # deploy application
 APPNAME="MyApp"
