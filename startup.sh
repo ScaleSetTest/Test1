@@ -11,9 +11,6 @@ then
 fi
 
 # enviorment
-export REG_LOC="containersregtest.azurecr.io"
-export REG_USR="ContainersRegTest"
-export REG_PWD=$1
 export APP_VERSION=$2
 
 # deploy application
