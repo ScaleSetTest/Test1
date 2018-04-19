@@ -7,3 +7,9 @@ app:
   image: httpd:latest
   ports:
     - "81:80"
+
+myweb:
+  image: containersregtest.azurecr.io/app1/web:latest
+  ports:
+    - "82:80"
+    
