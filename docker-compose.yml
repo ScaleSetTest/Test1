@@ -9,7 +9,9 @@ app:
     - "81:80"
 
 myweb:
-  image: containersregtest.azurecr.io/app1/web:latest
+  image: ${REG_LOC}/app1/web:latest
+  auth:
+    username: ${REG_USR}
+    password: ${REG_PWD}
   ports:
     - "82:80"
-    
