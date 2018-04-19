@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Env vars
-REG_LOC="containersregtest.azurecr.io"
-REG_USR="ContainersRegTest"
 REG_PWD=$1
 export APP_VERSION=$2
+export REG_LOC="containersregtest.azurecr.io"
+REG_USR="ContainersRegTest"
 
 # install docker-compose on first boot
 if [ ! -x "/opt/bin/docker-compose" ]
