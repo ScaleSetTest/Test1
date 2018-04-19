@@ -19,4 +19,5 @@ fi
 curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
 cp docker-compose.yml /home/$APPNAME
 cd /home/$APPNAME
+docker login -u ContainersRegTest -p $1 containersregtest.azurecr.io
 /opt/bin/docker-compose up -d
