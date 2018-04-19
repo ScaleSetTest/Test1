@@ -1,17 +1,10 @@
 #!/bin/bash
 
-# Env vars
+# parameters
 REG_PWD=$1
 APP_VERSION=$2
 REG_LOC="containersregtest.azurecr.io"
 REG_USR="ContainersRegTest"
-
-# docker-compose vars
-export APP_VERSION
-export REG_LOC
-export DB_URL="//somedatabase"
-export DB_USR="dbuser"
-export DB_PWD="secret"
 
 # install docker-compose on first boot
 if [ ! -x "/opt/bin/docker-compose" ]
@@ -30,6 +23,12 @@ then
   mkdir $APPHOME
 fi
 
+# deployment settings
+export APP_VERSION
+export REG_LOC
+export DB_URL="//somedatabase"
+export DB_USR="dbuser"
+export DB_PWD="secret"
 
 # deploy
 curl -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose-release.yml?tags=$APP_VERSION > docker-compose.yml
