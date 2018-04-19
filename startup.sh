@@ -2,9 +2,16 @@
 
 # Env vars
 REG_PWD=$1
-export APP_VERSION=$2
-export REG_LOC="containersregtest.azurecr.io"
+APP_VERSION=$2
+REG_LOC="containersregtest.azurecr.io"
 REG_USR="ContainersRegTest"
+
+# docker-compose vars
+export APP_VERSION
+export REG_LOC
+export DB_URL="//somedatabase"
+export DB_USR="dbuser"
+export DB_PWD="secret"
 
 # install docker-compose on first boot
 if [ ! -x "/opt/bin/docker-compose" ]
