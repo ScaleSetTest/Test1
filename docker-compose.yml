@@ -1,14 +1,17 @@
-web:
-  image: nginx:latest
-  ports:
-    - "80:80"
+version: '3'
 
-app:
-  image: httpd:latest
-  ports:
-    - "81:80"
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
 
-myweb:
-  image: containersregtest.azurecr.io/app1/web:latest
-  ports:
-    - "82:80"
+  app:
+    image: httpd:latest
+    ports:
+      - "81:80"
+
+  myweb:
+    image: "${REG_LOC}/app1/web:${APP_VERSION}"
+    ports:
+      - "82:80"

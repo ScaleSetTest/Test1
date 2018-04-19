@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Env vars
+REG_LOC="containersregtest.azurecr.io"
+REG_USR="ContainersRegTest"
+REG_PWD=$1
+export APP_VERSION=$2
+
 # install docker-compose on first boot
 if [ ! -x "/opt/bin/docker-compose" ]
 then
@@ -10,17 +16,17 @@ then
   chmod +x /opt/bin/docker-compose
 fi
 
-# enviorment
-export APP_VERSION=$2
-
-# deploy application
-APPNAME="MyApp"
-if [ ! -d "/home/$APPNAME" ]
+# create app space
+APPHOME="/home/MyApp"
+if [ ! -d "$APPHOME" ]
 then
-  mkdir /home/$APPNAME
+  mkdir $APPHOME
 fi
+
+
+# deploy
 curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose.yml > docker-compose.yml
-cp docker-compose.yml /home/$APPNAME
-cd /home/$APPNAME
-docker login -u ContainersRegTest -p $1 containersregtest.azurecr.io
+cp docker-compose.yml $APPHOME
+cd $APPHOME
+docker login -u $REG_USR -p $REG_PWD $REG_LOC
 /opt/bin/docker-compose up -d
