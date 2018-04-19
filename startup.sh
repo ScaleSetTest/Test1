@@ -32,7 +32,7 @@ fi
 
 
 # deploy
-curl -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose-release.yml?tags=$APP_VERSION > docker-compose.yml
+curl -L https://raw.githubusercontent.com/ScaleSetTest/Test1/master/docker-compose-release.yml?tags=$APP_VERSION > docker-compose.yml
 cp docker-compose.yml $APPHOME
 cd $APPHOME
 docker login -u $REG_USR -p $REG_PWD $REG_LOC
